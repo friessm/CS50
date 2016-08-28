@@ -1,0 +1,51 @@
+0.  BMP: 32 bit color, or over 4 billion
+	GIF: 8 bits, 256 colors
+	JPEG: 24 bit, 16 million
+	PNG: 24 bit, 16 million
+    
+1.  GIF
+    
+2.  Lossless compression occurs when after uncompressing the file every single bit of data still remains from the time before
+    it was compressed. With lossy compression this is not the case, since it reduces file size by eliminating certain information.
+    
+3.  JPEG is lossy compressed.
+    
+4.  When a file on a FAT system is deleted two things happen. First, the first character
+    of the file is modified by the system to indicate that the file is deleted. Second, the fil's FAT clusters are moved to 
+    the hard drives' list of free clusters. The result is that the actual file data is never touched and remains on the
+    hard drive. In essence, using the 
+    operating system to erase files is insufficient.
+    
+5.  One way to achieve sufficent sanitisation is to fill the entire disk with ASCII NUL values.
+
+6.  stdint.h is a header file in C that allows to write more portable code by providing exact-width integer types.
+
+7.  They specify exact signed and unsigned integer types with a cross-platform bite size of 8, 16 and 32.
+    uint8_t is a unsigned integer type that is exactly 8 bites wide.
+    
+8.  BYTE: 1
+    DWORD: 4
+    LONG: 4
+    WORD: 2
+    
+9.  The first byte is the character 'B' and the second is the character 'M' in ASCII encoding.
+
+10. bfSize: The size, in bytes, of the bitmap file.
+    biSize: The number of bytes required by the structure.
+    
+11. If biHight is negative the bitmap is a top-down DIB starting at the upper-left corner.
+
+12. The color depth is defined by the biBitCount member.
+
+13. If there is no file created by fopen.
+
+14. Because the program is reading 1 RGB at a time.
+
+15. (4 - (3 * 3 bytes) % 4) % 4 => padding = 3 (so in total 12 which can be divided by 4).
+
+16. fseek allows to change to location of the pointer. For example it allows to set the pointer to the end of 
+    the file and read in from there on.
+
+17. SEEK_CUR changes the pointer from intpr to SEEK_CUR, the current position of the cursor.
+
+18. Rob Bowden did it.

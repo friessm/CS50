@@ -1,0 +1,49 @@
+0.  Is the longest word that ever appeared in an english dictionary. It consists
+    of 45 letters.
+    
+1.  getrusage: returns information about the resources utilised by the current
+    process, or all its terminated child processes.
+    
+2.  A rusage struct has 16 members.
+
+3.  before and after are passed by reference because they are pased in as
+    arguments into the calculate function. 
+
+4.  The for loop iterates over each char of the input text one by one using fgetc.
+    The first if condition checks whether the char is a letter or an apostrophe. If 
+    yes, than the character gets added to the word array. Further the index variable
+    gets iterated by one. If index > LENGTH (max 45 letters), the remainder of the
+    alphabetical string gets consumed and the stream pointer gets set after the word.
+    If the first condition does not apply to the char, the second condition checks if
+    the char is a number. If yes, the word gets ignored, the same way it gets ignored in
+    the first condition. If no, the third condition applies. If both previous conditions
+    were false, and the index is bigger than 1, a word has been found. This is because
+    there was no alphabetical char or an apostrophe or a number in the char, meaning
+    it must have been dot, whitespace, or something else that is not part of english words. After
+    the condition is true the final NULL-terminator gets added to the word array, indicating
+    the word is finished. Afterwards it gets checked with the check function and then the
+    index gets set back to zero. Now the for loop starts again, looking for the next word in the
+    file pointer.
+    
+5.  fscanf might misinterpret a dot as a part of a word while reading from the
+    input stream. With fgetc we can check for each single char whether it is a
+    letter or an aposthrope, or something else.
+    
+6.  The location pointed to by the const char pointer will not change. This makes
+    sense because both the contents of word and the content of dictionary should
+    never be changed within the functions, because it is the unchanged content of the
+    word and dictionary we want to work with.
+    
+7.  I used a trie data structure. The struct contained the boolean variable 'is_word'
+    and a pointer to an array 'children' of size 27 (for 26 letters of the alphabet 
+    and the apostrophe). While loading the dictionary into the memory, using a trie,
+    whenever the end of a word is reached, the boolean variable is set to 'true'
+    thereby indicating that the end of the word is reached in this node. This is
+    then used in the check function to find out whether a word is part of the dictionary
+    or misspelled.
+    
+8.  The total was 0.25 the first time 
+
+9.  I managed to get rid of some unecessary function calls
+
+10. No. But I think it could be improved, however, I do not know where.
